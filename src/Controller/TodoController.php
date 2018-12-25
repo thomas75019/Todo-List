@@ -19,6 +19,11 @@ class TodoController extends AbstractController
      */
     public function add()
     {
+        return $this->render("add.html.twig");
+    }
+
+    public function done()
+    {
 
     }
 }
