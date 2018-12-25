@@ -1,7 +1,9 @@
 <?php
 namespace App\Controller;
 
+use App\Form\AddType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TodoController extends AbstractController
@@ -17,9 +19,13 @@ class TodoController extends AbstractController
     /**
      * @Route("/add", name="todo_add")
      */
-    public function add()
+    public function add(Request $request)
     {
-        return $this->render("add.html.twig");
+        $form = $this->createForm(AddType::class);
+
+        return $this->render("add.html.twig", array(
+            'form' => $form->createView(),
+        ));
     }
 
     public function done()
