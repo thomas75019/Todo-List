@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class AddType extends AbstractType
 {
@@ -15,6 +16,7 @@ class AddType extends AbstractType
         $builder
             ->add('title', TextType::class )
             ->add('content', TextareaType::class)
+            ->add('button', SubmitType::class)
             ;
     }
 

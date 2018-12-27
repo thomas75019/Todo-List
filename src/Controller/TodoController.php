@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TodoController extends AbstractController
 {
     /**
-     * @Route("/", name="todo_homel")
+     * @Route("/", name="todo_home")
      */
     public function home()
     {
