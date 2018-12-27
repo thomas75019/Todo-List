@@ -16,7 +16,6 @@ class AddType extends AbstractType
         $builder
             ->add('title', TextType::class )
             ->add('content', TextareaType::class)
-            ->add('button', SubmitType::class)
             ;
     }
 

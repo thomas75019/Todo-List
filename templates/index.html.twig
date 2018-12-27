@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Todo list{% endblock %}-Index</title>
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    {% endblock %}
 </head>
 <body>
-<h1>Todo list</h1>
+<header>
+    <h1>Todo list</h1>
+</header>
+
 {% block body %}Todo list index {% endblock %}
 {% block javascripts %}{% endblock %}
 </body>
