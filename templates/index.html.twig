@@ -20,7 +20,9 @@
     <p>{{ todo.content }}</p>
     <em>{{ todo.date|date("d/m/Y") }}</em>
 
-©
+    {% include '_done_button.html.twig' %}
+
+
 {% endfor %}
 {% endblock %}
 {% block javascripts %}{% endblock %}

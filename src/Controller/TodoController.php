@@ -49,8 +49,17 @@ class TodoController extends AbstractController
         ));
     }
 
-    public function done()
+    /**
+     * @Route("/done/{id}", name="todo_done")
+     */
+    public function done(Todo $todo)
     {
+       $em = $this->getDoctrine()->getManager();
 
+       $todo->setDone(true);
+
+       $em->flush();
+
+       return $this->redirectToRoute('todo_home');
     }
 }
