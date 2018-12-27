@@ -31,6 +31,11 @@ class Todo
      */
     private $date;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $done;
+
 
     public function getId(): ?int
     {
@@ -69,6 +74,18 @@ class Todo
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getDone(): ?bool
+    {
+        return $this->done;
+    }
+
+    public function setDone(bool $done): self
+    {
+        $this->done = $done;
 
         return $this;
     }
