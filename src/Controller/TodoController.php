@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Entity\Todo;
 use App\Form\AddType;
+use App\Repository\TodoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,9 +13,13 @@ class TodoController extends AbstractController
     /**
      * @Route("/", name="todo_home")
      */
-    public function home()
+    public function home(TodoRepository $repository)
     {
-        return $this->render('index.html.twig');
+        $todos = $repository->findTodos();
+
+        return $this->render('index.html.twig', array(
+            'todos' => $todos
+        ));
     }
 
     /**

@@ -13,7 +13,12 @@
     <h1>Todo list</h1>
 </header>
 {% block body %}Todo list index {% endblock %}
-{
+
+{% for todo in todos %}
+    <h3>{{ todo.title }}</h3>
+    <p>{{ todo.content }}</p>
+    <em>{{ todo.date|date("d/m/Y") }}</em>
+{% endfor %}
 {% block javascripts %}{% endblock %}
 </body>
 </html>
