@@ -14,12 +14,15 @@
 </header>
 {% block body %}Todo list index {% endblock %}
 
-{% for todo in todos %}
+{% block list %}
+{% for todo in todos if todo.done == false %}
     <h3>{{ todo.title }}</h3>
     <p>{{ todo.content }}</p>
     <em>{{ todo.date|date("d/m/Y") }}</em>
+
 ©
 {% endfor %}
+{% endblock %}
 {% block javascripts %}{% endblock %}
 </body>
 </html>
