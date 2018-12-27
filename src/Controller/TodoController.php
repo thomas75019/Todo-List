@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Todo;
 use App\Form\AddType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +22,22 @@ class TodoController extends AbstractController
      */
     public function add(Request $request)
     {
-        $form = $this->createForm(AddType::class);
+        $todo = new Todo();
+        $form = $this->createForm(AddType::class, $todo);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $date = new \DateTime();
+            $todo->setDate($date);
+
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($todo);
+            $em->flush();
+        }
 
         return $this->render("add.html.twig", array(
             'form' => $form->createView(),
