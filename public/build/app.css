@@ -1,0 +1,75 @@
+h1, h2, h3
+{
+    color: #016ABA;
+    font-family: 'Roboto Mono', monospace, sans-serif;
+
+}
+
+p, em
+{
+    font-family: 'Roboto Mono', monospace, sans-serif;
+}
+/* HEADER */
+
+h1
+{
+    text-align: center;
+    color: #016ABA;
+    font-size: 70px;
+    margin: 5% 30% 5% 30%;
+}
+
+em
+{
+    font-size: 15px;
+}
+
+/* BODY */
+
+#display p
+{
+    text-align: center;
+    font-family: 'Roboto Mono', monospace, sans-serif;
+    color: #016ABA;
+    font-size: 40px;
+    height: 100%;
+}
+
+.displayTodo
+{
+    text-align: center;
+    margin: 20px auto;
+    width: 50%;
+
+}
+
+.displayTodo > p
+{
+    font-size: 20px;
+}
+
+.displayTodo > form
+{
+    margin-top: 10px;
+}
+
+/* FORM ADD */
+h2
+{
+    text-align: center;
+}
+
+.required
+{
+    font-size: 20px;
+    color: #016ABA;
+}
+
+.col-lg-5 > button
+{
+    display: inline-block;
+    height: 50px;
+    width: 100px;
+
+}
+
