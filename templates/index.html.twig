@@ -14,6 +14,10 @@
 </header>
 {% block body %}Todo list index {% endblock %}
 
+{% block todo %}
+    <p>{{ todosTodo|length }}</p>
+{% endblock %}
+
 {% block list %}
 {% for todo in todos if todo.done == false %}
     <h3>{{ todo.title }}</h3>
@@ -21,10 +25,6 @@
     <em>{{ todo.date|date("d/m/Y") }}</em>
 
     {% include '_done_button.html.twig' %}
-
-    {{ todo.done == true|length }}
-
-
 {% endfor %}
 {% endblock %}
 {% block javascripts %}{% endblock %}
