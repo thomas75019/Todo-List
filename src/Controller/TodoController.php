@@ -16,7 +16,7 @@ class TodoController extends AbstractController
     public function home(TodoRepository $repository)
     {
         $todos = $repository->findTodos();
-        $todosTodo = $repository->findBy(array('done' => true));
+        $todosTodo = $repository->findBy(array('done' => false));
 
         return $this->render('index.html.twig', array(
             'todos' => $todos,
@@ -38,6 +38,7 @@ class TodoController extends AbstractController
         {
             $date = new \DateTime();
             $todo->setDate($date);
+            $todo->setDone(false);
 
 
             $em = $this->getDoctrine()->getManager();
