@@ -28,6 +28,10 @@
 
     {% endblock %}
 
+    {% block add %}
+        {% include '_add_button.html.twig' %}
+    {% endblock %}
+
     {% block list %}
         {% for todo in todos if todo.done == false %}
          <div class="displayTodo">

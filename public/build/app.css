@@ -5,6 +5,11 @@ h1, h2, h3
 
 }
 
+a:hover
+{
+    text-decoration: none;
+}
+
 p, em
 {
     font-family: 'Roboto Mono', monospace, sans-serif;
@@ -72,4 +77,18 @@ h2
     width: 100px;
 
 }
+
+/* ADD BUTTON */
+
+#add-button
+{
+    margin-left: 20px;
+}
+
+#add-button a
+{
+    color: white;
+
+}
+
 

@@ -1,0 +1,34 @@
+{% extends 'index.html.twig' %}
+{% block body %}
+{% include '_purge_button.html.twig' %} <a href="{{ path('todo_home') }}">Revenir au taches en cours</a>
+{% block todo %}
+    {% if todos|length > 0 %}
+        <div id="display">
+            <p>Todos fait: <span id="number todos">{{ todos|length }}</span></p>
+        </div>
+    {% else %}
+        <div id="display">
+            <p>Aucun todo fait ! :)</p>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block add %}
+
+{% endblock %}
+
+{% block list %}
+    {% for todo in todos  %}
+        <div class="displayTodo">
+            <h3>{{ todo.title }}</h3>
+            <p>{{ todo.content }}</p>
+            <em>{{ todo.date|date("d/m/Y") }}</em>
+
+
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% endblock %}
+

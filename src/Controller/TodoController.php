@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TodoController extends AbstractController
 {
     /**
-     * @Route("/", name="todo_home")
+     * @Route("/", methods={"GET"}, name="todo_home")
      */
     public function home(TodoRepository $repository)
     {
@@ -25,7 +25,7 @@ class TodoController extends AbstractController
     }
 
     /**
-     * @Route("/add", name="todo_add")
+     * @Route("/add",  name="todo_add")
      */
     public function add(Request $request)
     {
@@ -55,7 +55,7 @@ class TodoController extends AbstractController
     }
 
     /**
-     * @Route("/done/{id}", name="todo_done")
+     * @Route("/done/{id}", methods={"POST"}, name="todo_done")
      */
     public function done(Todo $todo)
     {
@@ -66,5 +66,42 @@ class TodoController extends AbstractController
        $em->flush();
 
        return $this->redirectToRoute('todo_home');
+    }
+
+    /**
+     * @Route("/viewDone", methods={"GET"}, name="todo_done_view")
+     */
+    public function viewDone(TodoRepository $repository)
+    {
+        $todos = $repository->findBy(array('done' => true));
+
+        return $this->render('done.html.twig', array(
+            'todos' => $todos
+        ));
+    }
+
+    /**
+     * @Route("/purge", methods={"POST"}, name="todo_purge")
+     */
+    public function purge(TodoRepository $repository, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $todos = $repository->findBy(array('done' => true));
+
+        if ( null === $todos)
+        {
+            return $this->redirectToRoute('todo_done_view');
+        }
+
+        foreach ($todos as $todo)
+        {
+            $em->remove($todo);
+        }
+        $em->flush();
+
+        $this->addFlash('success', 'Les Todos faient ont étés purgés');
+
+        return $this->redirectToRoute('todo_done_view');
+
     }
 }
