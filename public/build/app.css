@@ -110,4 +110,14 @@ h2
     text-decoration: underline;
 }
 
+#done-view
+{
+    text-align: justify;
+    color: #016ABA;
+    margin-left: 20px;
+}
 
+#done-view:hover
+{
+    text-decoration: underline;
+}

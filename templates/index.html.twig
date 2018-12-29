@@ -30,6 +30,7 @@
 
     {% block add %}
         {% include '_add_button.html.twig' %}
+        <br /><a href="{{ path('todo_done_view') }}" id="done-view">Voir les tâches faites({{ doneTodos|length }})</a>
     {% endblock %}
 
     {% block list %}
