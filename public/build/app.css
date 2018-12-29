@@ -91,4 +91,23 @@ h2
 
 }
 
+/* BUTTON PURGE */
+
+#purge
+{
+    margin-left: 20px;
+}
+
+/* VIEW DONE */
+.back-home
+{
+    margin-left: 20px;
+    color: #016ABA;
+}
+
+.back-home:hover
+{
+    text-decoration: underline;
+}
+
 

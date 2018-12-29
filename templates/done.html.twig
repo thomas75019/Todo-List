@@ -1,6 +1,6 @@
 {% extends 'index.html.twig' %}
 {% block body %}
-{% include '_purge_button.html.twig' %} <a href="{{ path('todo_home') }}">Revenir au taches en cours</a>
+{% include '_purge_button.html.twig' %} <a href="{{ path('todo_home') }}" class="back-home">Revenir aux taches en cours</a>
 {% block todo %}
     {% if todos|length > 0 %}
         <div id="display">
