@@ -82,7 +82,7 @@ class TodoController extends AbstractController
     /**
      * @Route("/purge", methods={"POST"}, name="todo_purge")
      */
-    public function purge(TodoRepository $repository, Request $request)
+    public function purge(TodoRepository $repository)
     {
         $em = $this->getDoctrine()->getManager();
         $todos = $repository->findBy(array('done' => true));
