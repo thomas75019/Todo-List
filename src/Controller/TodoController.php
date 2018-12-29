@@ -16,13 +16,10 @@ class TodoController extends AbstractController
     public function home(TodoRepository $repository)
     {
         $todos = $repository->findTodos();
-        $todosTodo = $repository->findBy(array('done' => false));
-        $doneTodos = $repository->findBy(array('done' => true));
+
 
         return $this->render('index.html.twig', array(
-            'todos' => $todos,
-            'todosTodo' => $todosTodo,
-            'doneTodos' => $doneTodos
+            'todos' => $todos
         ));
     }
 

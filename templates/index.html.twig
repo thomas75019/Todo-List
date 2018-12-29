@@ -16,21 +16,30 @@
 </header>
 {% block body %}
     {% block todo %}
-        {% if todosTodo|length > 0 %}
+        {% set countNotDone = 0 %}
+        {% for todo in todos if todo.done == false %}
+        {% set countNotDone = countNotDone + 1 %}
+        {% endfor %}
+        {% if countNotDone > 0 %}
         <div id="display">
-            <p>Todos : <span id="number todos">{{ todosTodo|length }}</span></p>
+            <p>Todos : <span id="number todos">{{ countNotDone }}</span></p>
         </div>
         {% else %}
         <div id="display">
             <p>Nothing to do ! :)</p>
         </div>
         {% endif %}
-
     {% endblock %}
 
     {% block add %}
         {% include '_add_button.html.twig' %}
-        <br /><a href="{{ path('todo_done_view') }}" id="done-view">Voir les tâches faites({{ doneTodos|length }})</a>
+        {% set countDone = -1 %}
+        {% for todo in todos if todo.done == true %}
+        {% set countDone = countDone + 1 %}
+        {% endfor %}
+
+
+        <br /><a href="{{ path('todo_done_view') }}" id="done-view">Voir les tâches faites({{ countDone }})</a>
     {% endblock %}
 
     {% block list %}
