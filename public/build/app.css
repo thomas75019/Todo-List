@@ -121,3 +121,16 @@ h2
 {
     text-decoration: underline;
 }
+
+
+/* FORM */
+
+form.col-lg-5
+{
+    margin-left: 30%;
+}
+
+form.col-lg-5 button
+{
+    width: 100%;
+}

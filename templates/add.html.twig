@@ -11,8 +11,13 @@
     }
     })
     }}
-    {{ form_row(form.title) }}
-    {{ form_row(form.content) }}
+    {{ form_row(form.title, { 'attr': {
+        'placeholder': 'Titre'
+    }
+    })  }}
+    {{ form_row(form.content, { 'attr': {
+        'placeholder': 'A faire'
+    }}) }}
 
 
     <button type="submit" class="btn btn-primary" id="create">Créer</button>
